@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Homepage</title>
+    <style>
+      h1, h2 {
+        text-align: center;
+      }
+
+      img {
+        height: 360px;
+        width: 100%;
+        object-fit: cover;
+      }
+
+      body {
+        font-family: monospace;
+        font-size: 18px;
+      }
+
+      #product-image {
+        height: 350px;
+        width: 350px;
+        object-fit: cover;
+        border: solid;
+        border-color: black;
+      }
+
+      #product-section {
+        text-align: center;
+      }
+
+      p {
+        max-width: 1000px;
+        min-width: 300px;
+        text-align: left;
+        margin: 0 auto;
+      }
+
+      #order-section {
+        text-align: center;
+        border: solid;
+        border-width: 1px;
+        max-width: 350px;
+        min-width: 100px;
+        margin: 0 auto;
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
+
+      #buy-button {
+        font-family: monospace;
+        font-size: 23px;
+        background-color: #0b142e;
+        color: white;
+        border-radius: 20px;
+        margin: 20px;
+      }
+
+    </style>
+  </head>
+  <body>
+    <h1>The Phone Shop</h1>
+    <img src="/static/ThePhoneShop Banner.png">
+
+    <h2>{{product['name']}}</h2>
+
+    <div id="product-section">
+      <img id="product-image" src={{product['image']}}>
+      <h3>{{product['price']}}</h3>
+
+      <h3>Description</h3>
+      <p>{{product['desc']}}</p>
+    </div>
+
+    <div id="order-section">
+      <h2>Order Now</h2>
+
+      <form action='/browse-products/product-page/receipt' method="post">
+        <label for="name">Name</label><br>
+        <input name="name" type="text" required><br>
+
+        <label for="email">Email</label><br>
+        <input name="email" type="email" required><br>
+
+        <label for="address">Address</label><br>
+        <input name="address" type="text" required><br>
+
+        <label for="card">Card Number</label><br>
+        <input name="card" type="number" required><br>
+
+        <input type="hidden" name="product_name" value="{{product['name']}}">
+        <input type="hidden" name="price" value="{{product['price']}}">
+
+        <input id="buy-button" type="submit" value="Buy">
+      </form>
+
+      
+    </div>
+    
+  </body>
+</html>
