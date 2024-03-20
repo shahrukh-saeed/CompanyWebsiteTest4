@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Homepage</title>
+    <title>Browse Products</title>
     <style>
       h1, h2 {
         text-align: center;
@@ -62,6 +62,7 @@
 
     <div id="products-section">
     {% for product in products %}
+      
       <div id="product">
         <img id="product-image" src={{product['image']}}>
 
@@ -77,12 +78,10 @@
           <input type="hidden" name="desc" value="{{product['desc']}}">
           <input type="submit" value="Buy">
         </form>
-        
       </div>
+      
     {% endfor %}
     </div>
-
     
-
   </body>
 </html>
